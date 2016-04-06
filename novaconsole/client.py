@@ -40,7 +40,10 @@ class Client (object):
         try:
             self.ws = websocket.create_connection(
                 self.url,
-                subprotocols=['binary', 'base64'])
+                header={
+                           'Sec-WebSocket-Protocol: binary',
+                           'Origin: %s' % self.url,
+                })
             self.log.warn('connected to: %s', self.url)
             self.log.warn('type "%s." to disconnect',
                           self.escape)
