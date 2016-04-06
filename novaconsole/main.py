@@ -57,7 +57,7 @@ def main():
     logging.basicConfig(
         level=args.loglevel)
 
-    if args.url or args.target.startswith('ws://'):
+    if args.url or args.target.startswith('ws://') or args.target.startswith('wss://'):
         console_url = args.target
     else:
         try:
