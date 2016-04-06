@@ -31,6 +31,7 @@ def run_until_exit():
     ws = websocket.create_connection(args.url,
                                      header={
                                          'Sec-WebSocket-Protocol: binary',
+                                         'Origin: %s' % args.url,
                                      })
 
     poll = select.poll()
